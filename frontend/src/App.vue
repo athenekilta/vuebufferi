@@ -1,23 +1,37 @@
 <template>
   <div id="app">
-    <Navigation v-bind:user="{name: 'Sampo', balance: 2770}" />
-    <section class="section">
-      <div class="container">
-        <HelloWorld msg="Welcome to Your Vue.js App"/>
-      </div>
-    </section>
+      <component
+        v-bind:is="this.view"
+        v-bind:user="this.user"
+        v-bind:msg="this.view"
+        v-bind:navigate="this.navigate"
+      />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import Navigation from './components/Navigation.vue'
+import Landing from './components/Landing.vue'
+import Store from './components/Store.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
-    Navigation
+    Landing,
+    Store
+  },
+  data: () => {
+    return {
+      view: 'Landing',
+      user: {
+        name: 'Velho',
+        balance: 2770
+      }
+    }
+  },
+  methods: {
+    navigate(x){
+      this.view = x;
+    }
   }
 }
 </script>

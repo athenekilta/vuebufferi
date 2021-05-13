@@ -1,25 +1,20 @@
 <template>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-        <a class="navbar-item">
+    <nav class="is-flex is-justify-content-space-between is-flex-direction-row is-align-items-center" role="navigation" aria-label="main navigation">
+        <div class="navbar-item title m-0">
             Hei {{user.name}}!
-        </a>
-    </div>
-
-    <div id="navbarBasicExample" class="navbar-menu">
+        </div>
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
                 <a class="button is-outlined currency">
                     {{currency(user.balance)}}
                 </a>
-                <a class="button is-danger is-outlined">
+                <a v-on:click="navigate('Landing')" class="button is-danger is-outlined">
                     Kirjaudu ulos
                 </a>
                 </div>
             </div>
         </div>
-    </div>
     </nav>
 </template>
 
@@ -28,7 +23,8 @@
 export default {
   name: 'Navigation',
   props: { 
-      user: Object
+      user: Object,
+      navigate: Function
    },
    methods: {
        currency(n){
