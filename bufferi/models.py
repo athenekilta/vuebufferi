@@ -5,12 +5,12 @@ class Product(models.Model):
     name = models.CharField(max_length=140)
     price = models.PositiveIntegerField()
     quantity = models.PositiveIntegerField()
+    deleted = models.BooleanField(default=False)
  
 
 class Customer(models.Model):
     name = models.CharField(max_length=140)
     balance = models.IntegerField()
-    deleted = models.BooleanField(default=False)
     deleted = models.BooleanField(default=False)
     mobilepay_id = models.CharField(max_length=140, blank=True, null=True)
 
