@@ -30,6 +30,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+FRONTEND_DIR = os.path.join(BASE_DIR, 'frontend')
+
 
 # Application definition
 
@@ -58,7 +60,10 @@ ROOT_URLCONF = 'vuebufferi.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
+        'DIRS': [
+            BASE_DIR / 'templates',
+            os.path.join(FRONTEND_DIR, 'dist')
+        ]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -123,6 +128,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATICFILES_DIRS = [
+    os.path.join(FRONTEND_DIR, 'dist/static')
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
