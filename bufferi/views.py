@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .models import Product
-from .serializers import ProductSerializer
+from .models import Product, Customer
+from .serializers import ProductSerializer, CustomerSerializer
 
 
 def index(request):
@@ -12,3 +12,8 @@ def index(request):
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.filter(deleted=False)
     serializer_class = ProductSerializer
+
+
+class CustomerViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Customer.objects.filter(deleted=False)
+    serializer_class = CustomerSerializer
