@@ -30,3 +30,16 @@ python manage.py runserver
 When you pull code that includes new migrations, you should run `python manage.py migrate`.
 
 In case your code requires changes in the database, run `python manage.py makemigrations` followed by `python manage.py migrate`.
+
+## Contributing
+### Commit message style
+Recommended style: [commit.style](https://commit.style/).
+
+### Tietskarijengi members
+Just commit your changes, use branches when necessary. Pull requests are great for reviewing.
+
+### External contributors
+Pull requests welcome! Please explain what your change does and use descriptive commit messages etc.
+
+### Adding your name to contributors in LICENSE
+Please add your name to the contributors in [LICENSE](./LICENSE) when you make your first commit / pull request in this repository :smiling_face_with_three_hearts:
