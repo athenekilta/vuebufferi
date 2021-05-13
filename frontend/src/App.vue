@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Navigation />
+    <Navigation v-bind:user="{name: 'Sampo', balance: 2770}" />
     <section class="section">
       <div class="container">
         <HelloWorld msg="Welcome to Your Vue.js App"/>

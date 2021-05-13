@@ -2,32 +2,44 @@
     <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item">
-            <strong>Namubufferi</strong>
+            Hei {{user.name}}!
         </a>
     </div>
 
     <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-end">
-        <div class="navbar-item">
-            <div class="buttons">
-            <a v-if="!user" class="button is-primary">
-                Kirjaudu sisään
-            </a>
+            <div class="navbar-item">
+                <div class="buttons">
+                <a class="button is-outlined currency">
+                    {{currency(user.balance)}}
+                </a>
+                <a class="button is-danger is-outlined">
+                    Kirjaudu ulos
+                </a>
+                </div>
             </div>
-        </div>
         </div>
     </div>
     </nav>
 </template>
 
 <script>
+
 export default {
   name: 'Navigation',
   props: { 
       user: Object
+   },
+   methods: {
+       currency(n){
+        return (n/100).toLocaleString("fi", {style: "currency", currency:"EUR"})
+        }
    }
 }
 </script>
 
 <style scoped>
+.navbar-brand {
+    font-size: 1.5rem;
+}
 </style>
